@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="post"
+            type="com.project.services.model.response.Post" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootItemLayout"
+        android:orientation="vertical"
+        android:padding="@dimen/ten_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleText"
+            android:layout_width="@dimen/zero_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            app:layout_constraintEnd_toStartOf="@+id/devider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleData"
+            android:layout_width="@dimen/zero_0dp"
+            android:layout_height="wrap_content"
+            android:text="@{post.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/devider"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/title" />
+
+        <View
+            android:id="@+id/viewDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_1dp"
+            android:layout_marginTop="@dimen/ten_10dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/titleData"
+             />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bodyText"
+            android:layout_width="@dimen/zero_0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/body"
+            app:layout_constraintEnd_toStartOf="@+id/devider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewDivider" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bodyData"
+            android:layout_width="@dimen/zero_0dp"
+            tools:text="@string/body"
+            android:layout_height="wrap_content"
+            android:text="@{post.body}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/devider"
+            app:layout_constraintTop_toBottomOf="@+id/viewDivider"
+             />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/devider"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

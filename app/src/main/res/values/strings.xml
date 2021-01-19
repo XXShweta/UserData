@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Project</string>
+    <string name="title">Title</string>
+    <string name="body">Body</string>
+    <string name="userid">UserId</string>
+    <string name="number_of_post">Number of Post</string>
+    <string name="user_name">User Name</string>
+    <string name="user_email">User Email</string>
+
+</resources>

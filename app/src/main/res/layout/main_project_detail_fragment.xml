@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="projectDetailViewModel"
+            type="com.project.ui.viewModel.ProjectDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailRootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/loadingView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{projectDetailViewModel.isLoading().booleanValue() ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="@dimen/zero_0dp"
+            android:layout_height="@dimen/zero_0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:visibility="@{projectDetailViewModel.isLoading().booleanValue() ? View.INVISIBLE : View.VISIBLE}"
+            android:id="@+id/userNameText"
+            android:text="@string/user_name"
+            android:layout_width="@dimen/zero_0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:visibility="@{projectDetailViewModel.isLoading().booleanValue() ? View.INVISIBLE : View.VISIBLE}"
+            android:id="@+id/userEmailText"
+            android:layout_width="@dimen/zero_0dp"
+            android:text="@string/user_email"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userNameText" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:visibility="@{projectDetailViewModel.isLoading().booleanValue() ? View.INVISIBLE : View.VISIBLE}"
+            android:id="@+id/userNameData"
+            android:layout_width="@dimen/zero_0dp"
+            android:text="@{projectDetailViewModel.userName}"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:visibility="@{projectDetailViewModel.isLoading().booleanValue() ? View.INVISIBLE : View.VISIBLE}"
+            android:id="@+id/userEmailData"
+            android:layout_width="@dimen/zero_0dp"
+            android:text="@{projectDetailViewModel.userEmail}"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/userNameData" />
+
+        <View
+            android:id="@+id/viewDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_1dp"
+            android:layout_marginTop="@dimen/twenty_20dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/userEmailData"
+             />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="@{projectDetailViewModel.isLoading().booleanValue() ? View.INVISIBLE : View.VISIBLE}"
+            android:id="@+id/userPostsRV"
+            android:layout_width="@dimen/zero_0dp"
+            android:layout_height="@dimen/zero_0dp"
+            android:layout_marginTop="@dimen/ten_10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/viewDivider"
+            app:layout_constraintTop_toBottomOf="@+id/viewDivider" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

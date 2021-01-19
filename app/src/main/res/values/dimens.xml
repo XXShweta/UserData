@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="zero_0dp">0dp</dimen>
+    <dimen name="one_1dp">1dp</dimen>
+    <dimen name="ten_10dp">10dp</dimen>
+    <dimen name="twenty_20dp">20dp</dimen>
+    <dimen name="thirty_30dp">30dp</dimen>
+
+</resources>
